@@ -1,6 +1,7 @@
+from ast import Raise
 from tkinter import *
 from tkinter import ttk
-from turtle import title
+from turtle import right, title
 from PIL import Image, ImageTk
 from numpy import imag
 
@@ -19,6 +20,17 @@ class ChatBot:
 
         Title_label = Label(main_frame, bd=3, relief=RAISED, anchor='nw', width=730,compound=LEFT, image=self.photoimg, text='Chat Me',font=('arial',30,'bold'),fg='green',bg='white')
         Title_label.pack(side=TOP)
+
+        # ========= text area ==========
+
+        self.scroll_y = ttk.Scrollbar(main_frame,orient=VERTICAL)
+        self.text = Text(main_frame, width=65, height=20,bd=3, relief=RAISED, font=('arial',14),yscrollcommand=self.scroll_y.set)
+        self.scroll_y.pack(side=RIGHT,fill=Y)
+        self.text.pack()
+
+
+
+
 
 
 if __name__=="__main__":
