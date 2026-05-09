@@ -1,9 +1,11 @@
 from ast import Raise
+from email.policy import strict
+from platform import release
 from tkinter import *
 from tkinter import ttk
 from turtle import right, title
 from PIL import Image, ImageTk
-from numpy import imag
+from numpy import imag, pad
 
 class ChatBot:
     def __init__(self, root):
@@ -28,6 +30,21 @@ class ChatBot:
         self.scroll_y.pack(side=RIGHT,fill=Y)
         self.text.pack()
 
+        btn_frame = Frame(self.root,bd=4, bg='white',width=730)
+        btn_frame.pack()
+        
+        label_1= Label(btn_frame, text="Type Something",font=('arial',14,'bold'),fg='green',bg='white')
+        label_1.grid(row=0, column=0, padx= 5,sticky=W)
+
+        self.entry= ttk.Entry(btn_frame, width=40, font=("times new roman", 16,'bold'))
+        self.entry.grid(row=0, column=1, padx=5, sticky=W)
+
+        self.send = Button(btn_frame,text='Send>>', font=('arial',15, 'bold'),width=8, bg='green',)
+        self.send.grid(row=0, column=2,padx=5, sticky=W )
+
+
+        self.clear = Button(btn_frame,text='Clear Data>>', font=('arial',15, 'bold'),width=10, bg='red',fg='white')
+        self.clear.grid(row=1, column=0,padx=5, sticky=W )
 
 
 
